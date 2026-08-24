@@ -22,6 +22,13 @@ jobs:
     uses: konradmichalik/reusable-github-actions/.github/workflows/tests-php.yml@main
     permissions:
       contents: read
+    with:
+      # 8.1 excluded: this package also requires typo3/cms-core, which
+      # (together with phpunit ^11) needs PHP >=8.2. A real tests-php.yml
+      # consumer is a pure PHP library without that constraint and keeps
+      # the full default matrix; this canary cannot represent both a pure
+      # PHP library and a TYPO3 extension in the same composer.json.
+      php-versions: '["8.2", "8.3", "8.4"]'
 
   tests-typo3:
     uses: konradmichalik/reusable-github-actions/.github/workflows/tests-typo3.yml@main
