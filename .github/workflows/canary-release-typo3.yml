@@ -1,0 +1,26 @@
+name: Canary release (TYPO3)
+
+# Not run automatically. Dispatch manually against an existing tag ref when
+# a change to release-typo3.yml needs exercising end-to-end. See the note in
+# canary-release.yml for why this is a separate file rather than a second
+# job in the same workflow.
+#
+# TYPO3_API_TOKEN is a placeholder value, not a real TER credential. The
+# ter-publish step is expected to fail against the real TER API; everything
+# before that step (artefact build, tag validation, GitHub release) is still
+# exercised.
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  release-typo3:
+    uses: konradmichalik/reusable-github-actions/.github/workflows/release-typo3.yml@main
+    permissions:
+      contents: write
+    secrets:
+      typo3-api-token: ${{ secrets.TYPO3_API_TOKEN }}
+    with:
+      typo3-extension-key: 'rga_canary'

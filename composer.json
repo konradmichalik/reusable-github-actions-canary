@@ -1,0 +1,43 @@
+{
+    "name": "konradmichalik/reusable-github-actions-canary",
+    "description": "Throwaway consumer that exercises every workflow in konradmichalik/reusable-github-actions before release.",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^8.2",
+        "typo3/cms-core": "^12.4 || ^13.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.0 || ^2.0",
+        "rector/rector": "^1.0 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Konradmichalik\\ReusableGithubActionsCanary\\": "Classes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konradmichalik\\ReusableGithubActionsCanary\\Tests\\": "Tests/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "rga_canary"
+        }
+    },
+    "scripts": {
+        "lint:composer": "composer validate --no-check-publish",
+        "lint:editorconfig": "true",
+        "lint:php": "php-cs-fixer fix --dry-run --diff",
+        "sca:php": "phpstan analyse",
+        "migration:rector": "rector process",
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-clover .Build/coverage/clover.xml"
+    },
+    "config": {
+        "allow-plugins": true
+    }
+}

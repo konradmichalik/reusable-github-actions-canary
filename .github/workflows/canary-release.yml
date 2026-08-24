@@ -1,0 +1,20 @@
+name: Canary release (plain)
+
+# Not run automatically. Dispatch manually against an existing tag ref when
+# a change to release.yml needs exercising end-to-end. Kept in its own file
+# so it never runs in the same workflow execution as canary-release-typo3.yml
+# — both create a GitHub release for the same tag, and running them
+# together would make one collide with (or silently overwrite) the other's
+# release, an artifact of testing two release paths against one tag
+# namespace rather than a real finding about either reusable workflow.
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  release:
+    uses: konradmichalik/reusable-github-actions/.github/workflows/release.yml@main
+    permissions:
+      contents: write
