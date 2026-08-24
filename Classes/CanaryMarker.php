@@ -8,8 +8,7 @@ use TYPO3\CMS\Core\SingletonInterface;
 
 final class CanaryMarker implements SingletonInterface
 {
-    public function isAlive(): bool
-    {
+    public function isAlive(): bool {
         return true;
     }
 }
