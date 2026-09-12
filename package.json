@@ -1,0 +1,8 @@
+{
+    "name": "reusable-github-actions-canary-docs",
+    "private": true,
+    "description": "Deliberately dependency-free. pages.yml runs whatever build-script it is given, so a real VitePress install would add ~100 MB and a Renovate surface without exercising anything extra: base_path comes from actions/configure-pages, not from VitePress.",
+    "scripts": {
+        "docs:build": "node docs/build.js"
+    }
+}

@@ -1,0 +1,4 @@
+
+# Built docs output
+docs/.vitepress/dist/
+node_modules/

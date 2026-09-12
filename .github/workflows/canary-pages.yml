@@ -1,0 +1,25 @@
+name: Canary pages
+
+# Exercises pages.yml, the one workflow with no other live coverage (issue #64).
+# Manual dispatch plus pushes that touch the docs, so it does not run on every
+# commit: a Pages deployment is slower and noisier than the other canary calls.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/canary-pages.yml'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  pages:
+    uses: konradmichalik/reusable-github-actions/.github/workflows/pages.yml@main
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
