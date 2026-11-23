@@ -10,7 +10,7 @@ Throwaway consumer for [konradmichalik/reusable-github-actions](https://github.c
 
 ## What calls what
 
-- `.github/workflows/canary.yml` — daily schedule plus `workflow_dispatch`, calls `cgl.yml`, `cgl-test.yml`, `tests-php.yml`, `tests-typo3.yml`, `tests.yml`, `security.yml`, `scorecard.yml`
+- `.github/workflows/canary.yml` — daily schedule plus `workflow_dispatch`, calls `cgl.yml`, `cgl-test.yml`, `tests-php.yml`, `tests-typo3.yml`, `security.yml`, `scorecard.yml`
 - `.github/workflows/canary-release.yml` — triggered by pushing a tag, calls `release.yml` and `release-typo3.yml`. Not run automatically: push a tag here manually when a change to either release workflow needs exercising. `TYPO3_API_TOKEN` is set to a placeholder value, so the TER-publish step is expected to fail against the real TER API; everything before that step is still exercised.
 
 ## Before releasing a change to the source repository

@@ -11,7 +11,8 @@
         "phpunit/phpunit": "^11.0",
         "friendsofphp/php-cs-fixer": "^3.0",
         "phpstan/phpstan": "^1.0 || ^2.0",
-        "rector/rector": "^1.0 || ^2.0"
+        "rector/rector": "^1.0 || ^2.0",
+        "shipmonk/composer-dependency-analyser": "^1.8"
     },
     "autoload": {
         "psr-4": {
@@ -30,6 +31,7 @@
     },
     "scripts": {
         "cgl": "@composer --",
+        "analyze": "composer-dependency-analyser",
         "lint:composer": "composer validate --no-check-publish",
         "lint:editorconfig": "true",
         "lint:php": "php-cs-fixer fix --dry-run --diff",
