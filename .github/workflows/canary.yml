@@ -39,16 +39,6 @@ jobs:
       typo3-versions: '["12.4"]'
       dependencies: '["highest"]'
 
-  tests-deprecated:
-    name: tests.yml (deprecated, see #39)
-    uses: konradmichalik/reusable-github-actions/.github/workflows/tests.yml@main
-    permissions:
-      contents: read
-    with:
-      php-versions: '["8.2"]'
-      typo3-versions: '["12.4"]'
-      dependencies: '["highest"]'
-
   security:
     uses: konradmichalik/reusable-github-actions/.github/workflows/security.yml@main
     permissions:
